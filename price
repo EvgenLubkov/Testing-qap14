@@ -1,0 +1,27 @@
+# Запрос количества билетов 
+num_tickets = int(input("Сколько билетов вы хотите приобрести? "))
+
+# Инициализация переменных 
+total_price = 0
+discount = 0
+
+# Цикл для запроса возраста и подсчета стоимости 
+for i in range(num_tickets):
+    age = int(input(f"Введите возраст посетителя {i + 1}: "))
+    if age < 18:
+        price = 0
+    elif age < 25:
+        price = 990
+    else:
+        price = 1390
+    total_price += price
+
+# Проверка наличия скидки 
+if num_tickets > 3:
+    discount = total_price * 0.1
+    total_price -= discount
+
+# Вывод итоговой стоимости 
+print(f"Сумма к оплате: {total_price} рублей")
+if discount > 0:
+    print(f"Скидка: {discount} рублей")
